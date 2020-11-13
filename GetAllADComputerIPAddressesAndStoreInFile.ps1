@@ -1,0 +1,1 @@
+$file="domain_joined_ip_addresses.log";"AD Computer IP Addresses" > $file; foreach ($adcomputer in (Get-ADComputer -Filter * -Properties *)) { "$($adcomputer.Name): $((Resolve-DnsName -Name $adcomputer.Name).IPAddress)" >> $file }
